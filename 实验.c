@@ -1,19 +1,19 @@
 #include<stdio.h>
-//int temp(int a)
-//{
-//	int i = 0;
-//	while (a)
-//	{
-//		if (a % 2 == 1)
-//			i++;
-//		a = a / 2;
-//	}
-//	return i;
-//}
+#include<string.h>
+typedef struct stu
+{
+	char name[10];
+	char xinbie[3];
+
+}stu;
+void print1(stu* s)
+{
+	printf("%s\n", s->name);
+	printf("%s\n", s->xinbie);
+}
 int main()
 {
-	int a = 0;
-	scanf_s("%d", &a);
-	printf("%d", temp(a));
+	stu s = { "Ö±½Ó","ÄÐ" };
+	print1(&s);
 	return 0;
 }
