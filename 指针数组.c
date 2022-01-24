@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h>                          //指针数组
 int main()
 {
 	int arr1[] = { 1,2,3,4,5,6 };
