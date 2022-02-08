@@ -9,7 +9,6 @@ int main()
 	char buf[200] = { 0 };
 	strcpy(buf, arr);
 	char* e=NULL;
-	//printf("%s", e);
 	for (e = strtok(buf, a); e != NULL; e = strtok(NULL, a))
 	{
 		printf("%s ", e);
