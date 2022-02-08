@@ -20,6 +20,10 @@ char* my_strstr(const char* p1,const char* p2)
 				p1=p1 - temp;
 				return p1;
 			}
+			if (*p1 != *p2)
+			{
+				p2--;
+			}
 		}
 		p1++;
 	}
@@ -32,11 +36,11 @@ int main()
 	char* e=my_strstr(p1, p2);
 	if (e == NULL)
 	{
-		printf("不是\n");
+		printf("虏禄脢脟\n");
 	}
 	else
 	{
-		printf("是的\n");
+		printf("脢脟碌脛\n");
 		printf("%s", e);
 	}
 	return 0;
