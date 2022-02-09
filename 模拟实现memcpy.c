@@ -6,7 +6,7 @@ struct S
     int age;
     char name[20];
 };
-char* my_memcpy(char* arr2,const char* arr,int sz)
+void* my_memcpy(void* arr2,const void* arr,int sz)
 {
     assert(arr2);
     assert(arr);
