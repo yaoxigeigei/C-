@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h>     //满足c语言标准不能处理重叠内存
 #include <string.h>
 #include<assert.h>
 struct S
