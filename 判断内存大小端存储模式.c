@@ -1,31 +1,27 @@
 #include<stdio.h>
-//int check()                           //·½°¸¶ş
-//{
-//	int a = 1;
-//	short* b = (short*)&a;
-//	return *b;
-//}
-int check()                             //ÓÅ»¯·½°¸Èı
+int check1()                          //æ–¹æ¡ˆä¸€
 {
 	int a = 1;
 	return *(short*)&a;
 }
+
+int check2()                     //æ–¹æ¡ˆäºŒ
+{
+	union S
+	{
+		char i;
+		int a;
+	}u;
+	u.a=1;
+	return u.i;
+}
 int main()
 {
-	//int a = 1;                            //·½°¸Ò»
-	//char* b = (char*)&a;
-	//if (*b == 0)
-	//	printf("¸ÃÉè±¸Îª´ó¶Ë´æ´¢Ä£Ê½");
-	//else
-	//	printf("¸ÃÉè±¸ÎªĞ¡¶Ë´æ´¢Ä£Ê½");
-
-	//Ğ´Ò»¸öÅĞ¶Ï´óĞ¡¶ËµÄº¯Êı
-	//Èç¹û·µ»Ø1ÔòÊÇĞ¡¶Ë ·µ»Ø0ÔòÊÇ´ó¶Ë
 	int a = 1;
 	int b=check();
 	if (b == 1)
-		printf("¸ÃÉè±¸ÊÇĞ¡¶Ë´æ´¢Ä£Ê½");
+		printf("è¯¥è®¾å¤‡æ˜¯å°ç«¯å­˜å‚¨æ¨¡å¼");
 	else
-		printf("¸ÃÉè±¸ÊÇ´ó¶Ë´æ´¢Ä£Ê½");
+		printf("è¯¥è®¾å¤‡æ˜¯å¤§ç«¯å­˜å‚¨æ¨¡å¼");
 	return 0;
 }
