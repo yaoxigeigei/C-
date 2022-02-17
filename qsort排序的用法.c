@@ -1,19 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h>
-int cmp_int(const void* e1, const void* e2)    //int±È½Ï
+int cmp_int(const void* e1, const void* e2)    //intæ¯”è¾ƒ
 { 
-	return *(int*)e1 - *(int*)e2;                 //ÉıĞò
+	return *(int*)e1 - *(int*)e2;                 //å‡åº
 } 
-void test1()      //intÀàĞÍ
+void test1()      //intç±»å‹
 {
 	int arr1[10] = { 9,8,7,6,5,4,3,2,1,0 };
 	int sz1 = sizeof(arr1) / sizeof(arr1[0]);
 	qsort(arr1, sz1, sizeof(arr1[0]), cmp_int);       
-	//1:ÒªÅÅĞòµÄÊı×éÃû
-	//2:Êı×éµÄ¸öÊı
-	//3:Êı×éÀïÃ¿¸öÔªËØµÄËùÕ¼×Ö½ÚÊı
-	//4:Ê¹ÓÃº¯Êı(¹Ì¶¨ĞÎÊ½,ÇóÊ²Ã´ÀàĞÍĞ´Ê²Ã´ÀàĞÍ)
-	int i = 0;//intÀàĞÍ
+	//1:è¦æ’åºçš„æ•°ç»„å
+	//2:æ•°ç»„çš„ä¸ªæ•°
+	//3:æ•°ç»„é‡Œæ¯ä¸ªå…ƒç´ çš„æ‰€å å­—èŠ‚æ•°
+	//4:ä½¿ç”¨å‡½æ•°(å›ºå®šå½¢å¼,æ±‚ä»€ä¹ˆç±»å‹å†™ä»€ä¹ˆç±»å‹)
+	int i = 0;//intç±»å‹
 	for (i = 0; i < sz1; i++)
 	{
 		printf("%d ", arr1[i]);
@@ -24,27 +24,27 @@ void test1()      //intÀàĞÍ
 
 
 
-int cmp_float(const void* e1, const void* e2)   //float±È½Ï
+int cmp_float(const void* e1, const void* e2)   //floatæ¯”è¾ƒ
 {
 	if (*(float*)e1 == *(float*)e2)
-		return 0;                                //ÏàµÈ·µ»Ø0
+		return 0;                                //ç›¸ç­‰è¿”å›0
 	else if (*(float*)e1 > *(float*)e2)
-		return 1;                                //Ç°´óÓÚºó·µ»Ø´óÓÚ0µÄÊı
+		return 1;                                //å‰å¤§äºåè¿”å›å¤§äº0çš„æ•°
 	else
-		return -1;                               //Ç°Ğ¡ÓÚºó·µ»ØĞ¡ÓÚ0µÄÊı
+		return -1;                               //å‰å°äºåè¿”å›å°äº0çš„æ•°
 
-	//»òÕß¿ÉÒÔ
+	//æˆ–è€…å¯ä»¥
 	return ((int)(*(float*)e1 - *(float*)e2));
 }
-void test2()     //floatÀàĞÍ
+void test2()     //floatç±»å‹
 {
 	double arr2[] = { 1.0,5.6,9.88,5.44,3.22,0.55,5.99 };
 	int sz2 = sizeof(arr2) / sizeof(arr2[0]);
 	qsort(arr2, sz2, sizeof(arr2[0]), cmp_float);
-	//1:ÒªÅÅĞòµÄÊı×éÃû
-	//2:Êı×éµÄ¸öÊı
-	//3:Êı×éÀïÃ¿¸öÔªËØµÄËùÕ¼×Ö½ÚÊı
-	//4:Ê¹ÓÃº¯Êı(¹Ì¶¨ĞÎÊ½,ÇóÊ²Ã´ÀàĞÍĞ´Ê²Ã´ÀàĞÍ)
+	//1:è¦æ’åºçš„æ•°ç»„å
+	//2:æ•°ç»„çš„ä¸ªæ•°
+	//3:æ•°ç»„é‡Œæ¯ä¸ªå…ƒç´ çš„æ‰€å å­—èŠ‚æ•°
+	//4:ä½¿ç”¨å‡½æ•°(å›ºå®šå½¢å¼,æ±‚ä»€ä¹ˆç±»å‹å†™ä»€ä¹ˆç±»å‹)
 	int j = 0;
 	for (j = 0; j < sz2; j++)
 	{
@@ -56,21 +56,28 @@ void test2()     //floatÀàĞÍ
 
 
 
-struct str {                                //½á¹¹ÌåÀàĞÍ±È½Ï
+struct str {                                //ç»“æ„ä½“ç±»å‹æ¯”è¾ƒ
 	int age;
 	char name[20];
 };
-int cmp_struct_age(const void* e1, const void* e2)               //°´ÄêÁä±È½Ï
+int cmp_struct_age(const void* e1, const void* e2)               //æŒ‰å¹´é¾„æ¯”è¾ƒ
 {
 	return ((struct str*)e1)->age - ((struct str*)e2)->age;
 }
-int cmp_struct_name(const void* e1, const void* e2)             //°´Ãû×Ö±È½Ï
+int cmp_struct_name(const void* e1, const void* e2)             //æŒ‰åå­—æ¯”è¾ƒ
 {
 	return *((struct str*)e1)->name - *((struct str*)e2)->name;
 }
+//æ–¹æ³•2
+int cmp_struct_name(const void* e1, const void* e2)          //æŒ‰åå­—æ¯”è¾ƒ
+{
+	int mark1 = ((struct PeoInfo*)e1)->con->name;
+	int mark2 = ((struct PeoInfo*)e2)->con->name;
+	return mark1 > mark2 ? 1 : -1;
+}
 void test3()
 {
-	struct str s[3] = { {20,"°Ë¸Â"},{30,"ÑÅÂ¹"},{15,"°¢´ï"} };
+	struct str s[3] = { {20,"å…«å˜"},{30,"é›…é¹¿"},{15,"é˜¿è¾¾"} };
 	int sz3 = sizeof(s) / sizeof(s[0]);
 	qsort(s, sz3, sizeof(s[0]), cmp_struct_age);
 }
